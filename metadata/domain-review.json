@@ -1,0 +1,73 @@
+{
+  "repo": "apex-parse-json-lab",
+  "language": "Ruby",
+  "category": "Parsers",
+  "goal": "Implement a Ruby parsers project for json event replay, using fixture event logs and golden state snapshots.",
+  "review_model": {
+    "terms": [
+      "token drift",
+      "grammar width",
+      "label quality",
+      "error locality"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "token drift",
+      "signal": 65,
+      "slack": 20,
+      "drag": 24,
+      "confidence": 58,
+      "score": 136,
+      "lane": "watch"
+    },
+    {
+      "name": "stress",
+      "focus": "grammar width",
+      "signal": 61,
+      "slack": 26,
+      "drag": 9,
+      "confidence": 85,
+      "score": 206,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "label quality",
+      "signal": 58,
+      "slack": 31,
+      "drag": 30,
+      "confidence": 67,
+      "score": 124,
+      "lane": "watch"
+    },
+    {
+      "name": "recovery",
+      "focus": "error locality",
+      "signal": 50,
+      "slack": 27,
+      "drag": 10,
+      "confidence": 63,
+      "score": 160,
+      "lane": "ship"
+    },
+    {
+      "name": "stale",
+      "focus": "token drift",
+      "signal": 72,
+      "slack": 31,
+      "drag": 11,
+      "confidence": 49,
+      "score": 191,
+      "lane": "ship"
+    }
+  ]
+}
